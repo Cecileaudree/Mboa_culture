@@ -1,0 +1,7 @@
+{
+  "name": "Mboa_Culture",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
