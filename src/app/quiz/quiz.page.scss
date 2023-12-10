@@ -1,0 +1,36 @@
+ion-card {
+  margin: 20px 0;
+}
+
+.Categorie {
+  .image-container {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Couche sombre */
+    }
+
+    .text-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; /* Couleur du texte */
+      text-align: center;
+      width: 100%;
+      z-index: 1; /* Assure que le texte est au-dessus de la couche sombre */
+    }
+  }
+}
+

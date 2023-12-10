@@ -1,0 +1,33 @@
+
+<ion-content>
+  <div class="header">
+    <ion-buttons >
+      <ion-button >
+        <ion-icon slot="icon-only" color="light" name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons>
+      <ion-button>
+        <ion-icon name="heart-outline" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </div>
+
+  <div class="card">
+      <ion-grid>
+        <ion-row class="categorie">
+          <ion-col size="6" *ngFor="let item of categories">
+            <ion-card class="categorie-card" (click)="niveaux(item)">
+              <img [src]="item.Image_categorie">
+              <ion-card-title class="categorie-title">
+                {{item.nom_categorie}}
+              </ion-card-title>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+
+
+</ion-content>

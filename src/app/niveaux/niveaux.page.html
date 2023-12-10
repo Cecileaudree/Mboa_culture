@@ -1,0 +1,11 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>niveaux</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item *ngFor="let item of niveaux" (click)="questionCatNiv(item)">
+    <ion-label>{{item.Libelle_niveau}}</ion-label>
+  </ion-item>
+</ion-content>

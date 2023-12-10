@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ "QUIZ_TITLE" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- <ion-card>
+    <ion-card-header>
+      Question {{ currentQuestion + 1 }}
+    </ion-card-header>
+    <ion-card-content>
+      {{ questions  [currentQuestion].question }}
+      <ion-list>
+        <ion-item *ngFor="let option of questions[currentQuestion].options" (click)="checkAnswer(option)">
+          {{ option }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card> -->
+
+  <ion-card>
+    <ion-card-header>
+      <!-- Question {{ currentQuestion + 1 }} -->
+    </ion-card-header>
+    <ion-card-content>
+      {{PoseQuestion}}
+      <ion-list>
+        <ion-item *ngFor="let item of reponses" (click)="onReponseClick(item)">
+          {{item.choix}}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+</ion-content>

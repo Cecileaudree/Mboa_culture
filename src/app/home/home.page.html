@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-border">
+    <ion-title class="ion-no-border">
+      Bienvenue sur notre application !
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content
+ class="ion-padding" class="ion-text-center">
+  <!-- <p>Cliquez sur le bouton "Start" pour commencer.</p>
+  <ion-button mode="ios" (click)="startFunction()">Start</ion-button> -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-row class="buttons" >
+    <ion-col size="12">
+      <ion-button routerLink="/quiz" color="light" expand="block" class="playButton " (click)="startFunction()"> Start Playing</ion-button>
+
+      <ion-button color="dark" class="helpButton"  >
+        <ion-icon></ion-icon> How to play
+      </ion-button>
+    </ion-col>
+  </ion-row>
+
 </ion-content>
