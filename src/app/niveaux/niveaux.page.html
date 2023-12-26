@@ -5,7 +5,12 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item *ngFor="let item of niveaux" (click)="questionCatNiv(item)">
-    <ion-label>{{item.Libelle_niveau}}</ion-label>
-  </ion-item>
-</ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of niveaux" (click)="questionCatNiv(item)">
+      <ion-button expand="full" shape="round" class="full-width-button" >
+         {{ item.Libelle_niveau }}   
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>  
+

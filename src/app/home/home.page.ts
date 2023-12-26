@@ -3,20 +3,124 @@ import { ActionSheetController, AlertController, LoadingController } from '@ioni
 import { QuizService } from '../services/quiz.service';
 import { Router } from '@angular/router';
 import {Storage} from '@ionic/storage'
-
+import { Howl } from 'howler';
+import { ModalController } from '@ionic/angular';
+// import { DynamicModalContentComponent } from '../dynamic-modal-content-component/dynamic-modal-content-component.component';
 
 
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-home', 
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
 
-  constructor( public actionSheetController:ActionSheetController,
-                private router:Router,private quiz:QuizService,
-                private storage:Storage) {}
+export class HomePage {
+  sound: Howl | undefined;
+  isPlaying: boolean = false;
+  lastPosition: number = 0;
+  isPaused: boolean = false;
+
+  constructor(
+    public actionSheetController: ActionSheetController,
+    private router: Router,
+    private quiz: QuizService,
+    private storage: Storage,
+    public modalController: ModalController
+  ) {
+    // Démarrer la musique automatiquement au chargement de la page
+    this.loadAndPlaySound();
+  }
+
+  loadAndPlaySound() {
+    // Vérifier si la musique est déjà en cours de lecture
+    if (!this.sound || !this.sound.playing()) {
+      // Chargez le son
+      this.sound = new Howl({
+        src: ['assets/sounds/Ks-Bloom.mp3'],
+        loop: true,
+        volume: 1.0,
+        mute: false,
+        onend: () => {
+          this.isPlaying = false;
+          console.log('Sound ended');
+        },
+      });
+
+      // Si la musique est en pause, reprenez la lecture à la dernière position connue
+      if (!this.isPlaying) {
+        this.sound.seek(this.lastPosition);
+        this.sound.play();
+        this.isPlaying = true;
+        console.log('Sound started');
+      }
+    }
+  }
+
+  toggleAndPlaySound() {
+    console.log('Toggle sound clicked');
+    if (this.sound) {
+      if (this.isPlaying) {
+        // Si la musique est en cours de lecture, mettez-la en pause
+        this.lastPosition = this.sound.seek(); // Enregistrez la dernière position avant la pause
+        this.sound.pause();
+        this.isPlaying = false;
+        this.isPaused = true; // Mettez à jour l'état de la pause
+        console.log('Sound paused');
+      } else {
+        // Si la musique est en pause ou n'a pas encore été chargée, jouez le son
+        this.loadAndPlaySound();
+        this.isPaused = false; // Mettez à jour l'état de la pause
+      }
+    }
+  }
+
+  // async presentModal(content: string) {
+  //   const modal = await this.modalController.create({
+  //     component: DynamicModalContentComponent,
+  //     componentProps: {'content': content},
+  //     cssClass: 'custom-modal-size'
+
+  //   });
+  //   return await modal.present();
+  // }
+    
+    
+  // async showInstructions() {
+  //   const instructions = `
+  //     <ion-content style="background-color: #f0f0f0; padding: 20px;">
+  //       <div class="modal-content" style="background-color: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); max-width: 80%; margin: auto;">
+  //         <h2 style="font-size: 1.5em; color: #333; margin-bottom: 10px;">Comment jouer à MboaCulture</h2>
+  //         <p style="font-size: 1em; color: #666;">Bienvenue dans MboaCulture, l'application de quiz qui mettra à l'épreuve vos connaissances sur le Mboa ! Voici comment jouer :</p>
+  //         <ul style="list-style-type: none; padding: 0; margin: 0;">
+  //           <li style="margin-bottom: 10px; font-size: 0.9em; color: #555;"><strong>Commencer le jeu :</strong> Appuyez sur le bouton "Jouer" pour lancer un nouveau quiz.</li>
+  //           <li style="margin-bottom: 10px; font-size: 0.9em; color: #555;"><strong>Répondre aux questions :</strong> Chaque quiz comprend une série de questions à choix multiples. Sélectionnez la réponse que vous pensez être correcte.</li>
+  //           <li style="margin-bottom: 10px; font-size: 0.9em; color: #555;"><strong>Limite de temps :</strong> Vous avez un temps limité pour répondre à chaque question. Soyez rapide pour marquer plus de points !</li>
+  //           <li style="margin-bottom: 10px; font-size: 0.9em; color: #555;"><strong>Score :</strong> Votre score dépend de la rapidité et de la précision de vos réponses.</li>
+  //           <li style="margin-bottom: 10px; font-size: 0.9em; color: #555;"><strong>Fin du jeu :</strong> Le jeu se termine après la dernière question. Vous pouvez voir votre score final et tenter de le battre lors de votre prochaine partie !</li>
+  //         </ul>
+  //         <p style="font-size: 1em; color: #666; margin-bottom: 0;">Amusez-vous bien et bonnes découvertes sur MboaCulture !</p>
+  //         <ion-button class="close-button" style="margin-top: 20px; color: #007bff;">Fermer</ion-button>
+  //       </div>
+  //     </ion-content>
+  //   `;
+  
+  //   console.log('Instructions:', instructions);
+  
+  //   const modal = await this.modalController.create({
+  //     component: DynamicModalContentComponent,
+  //     componentProps: { content: instructions },
+  //     cssClass: 'custom-modal-size',
+  //   });
+  
+  //   return await modal.present();
+  // }
+  
+  
+  
+  
+  
+  
 
     loading = true
     listCategorie:any[]=[]
@@ -27,6 +131,13 @@ export class HomePage {
     categoriebd:any
     questiondb:any
     reponsesbd:any
+ 
+
+
+    // toggleSound() {
+    //   this.sound.mute(!this.sound.mute());
+    // }
+    
 
   async ngOnInit() {
       this.initialize_bd()

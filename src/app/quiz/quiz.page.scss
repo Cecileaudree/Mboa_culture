@@ -34,3 +34,102 @@ ion-card {
   }
 }
 
+
+.quiz-question {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  padding: 15px;
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.quiz-answer {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quiz-answer:hover {
+  background-color: #e0e0e0;
+}
+
+.quiz-answer.selected {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.quiz-answer-text {
+  font-size: 16px;
+  color: #333;
+}
+
+.quiz-answer.selected .quiz-answer-text {
+  color: #fff;
+}
+
+
+// .quiz-question {
+//   background-color: #f2f2f2;  /* Couleur de fond */
+//   border: 1px solid #ddd;     /* Bordure */
+//   border-radius: 10px;        /* Coins arrondis */
+//   padding: 20px;              /* Espacement interne */
+//   margin: 20px 0;             /* Marge extérieure */
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);  /* Ombre légère */
+//   text-align: center;         /* Alignement du texte */
+//   animation: moveUpDown 10s infinite alternate linear;  /* 10s représente la durée de l'animation, ajustez selon vos besoins */
+// }
+
+// @keyframes moveUpDown {
+//   from {
+//     transform: translateY(-5px);  /* Déplacement vers le haut de 5 pixels */
+//   }
+
+//   to {
+//     transform: translateY(5px);  /* Déplacement vers le bas de 5 pixels */
+//   }
+// }
+
+// .quiz-question h2 {
+//   color: #333;                /* Couleur du texte */
+//   font-size: 1.5em;           /* Taille de la police */
+//   margin-bottom: 0;           /* Pas de marge en bas */
+// }
+
+
+// .quiz-answer {
+//   background-color: #f8f8f8;
+//   border: 1px solid #ddd;
+//   border-radius: 8px;
+//   padding: 15px;
+//   margin: 10px 0;
+//   cursor: pointer;
+//   transition: background-color 0.3s ease;
+// }
+
+// .quiz-answer:hover {
+//   background-color: #e0e0e0;
+// }
+
+// .quiz-answer.selected {
+//   background-color: #4caf50;
+//   color: #fff;
+// }
+
+// .quiz-answer-text {
+//   font-size: 16px;
+//   color: #333;
+// }
+
+// .quiz-answer.selected .quiz-answer-text {
+//   color: #fff;
+// }

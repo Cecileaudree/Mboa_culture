@@ -1,5 +1,7 @@
 ion-content{
-  --background: #204d57;
+  // --background: #204d57;
+  --ion-background-color: linear-gradient(#1D976C, #93F9B9) ;
+
   position: relative;
 
   .header{
@@ -20,7 +22,8 @@ ion-content{
   .card{
     height: 75%;
     width: 100%;
-    background: white;
+    background:linear-gradient(#00b09b,#96c93d) ;
+    // --ion-background-color: linear-gradient(#cac531, #f3f9a7) ;
     position: absolute;
     bottom: 0;
     border-radius: 3rem  3rem  0 0;
@@ -28,9 +31,59 @@ ion-content{
 
   }
 
+  .animated{
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @-webkit-keyframes bounceInUp{
+    0%{
+      opacity: 0;
+      -webkit-transform: translateY(2000px);
+    }
+    60%{
+      opacity: 1;
+      -webkit-transform: translateY(-30px);
+    }
+    80%{
+      -webkit-transform: translateY(10px);
+    }
+    100%{
+      -webkit-transform: translateY(0);
+    }
+  }
+  .bounceInUp{
+    -webkit-animation-name: bounceInUp;
+    animation-name: bounceInUp;
+  }
+  
+  @keyframes bounceInUp{
+    0%{
+      opacity: 0;
+      -webkit-transform: translateY(2000px);
+    }
+    60%{
+      opacity: 1;
+      -webkit-transform: translateY(-30px);
+    }
+    80%{
+      -webkit-transform: translateY(10px);
+    }
+    100%{
+      -webkit-transform: translateY(0);
+    }
+  }
+
   .categorie-card{
     border-radius: 25px; /* Ajustez la valeur selon votre préférence pour des coins plus ou moins arrondis */
-  overflow: hidden;
+    overflow: hidden;
+    --transition-duration: 0.3s;
+    /* Effet de survol */
+  &:hover {
+    transform: scale(1.1); /* Agrandissement au survol */
+  }
 
     img  {
       border-radius: 15px 15px 0 0;

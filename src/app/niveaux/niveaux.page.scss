@@ -1,0 +1,38 @@
+.full-width-button {
+    margin: 10%;
+    width: 100%;
+    font-size: 1.5em;
+    --background: #cb356b; /* Couleur de fond personnalisée */
+    --color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --transition-duration: 0.3s;
+  
+    /* Effet de survol */
+    &:hover {
+      --background: #ffe000; /* Couleur jaune au survol */
+      transform: scale(1.4); /* Agrandissement au survol */
+    }
+  
+    /* Effet au clic */
+    &:active {
+      --background: #799f0c; /* Couleur verte lors du clic */
+      transform: scale(0.9); /* Réduction au clic */
+    }
+  }
+  
+  .button-label {
+    font-size: 1.2em;
+  }
+  
+  /* Optionnel : Ajoutez des marges pour un meilleur espacement */
+  ion-list {
+    margin: 30px;
+    margin-top: 45%;
+  }
+  
+  ion-content {
+    --ion-background-color: #93F9B9;
+  }
+  

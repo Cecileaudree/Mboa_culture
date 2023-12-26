@@ -1,24 +1,58 @@
 <ion-header class="ion-no-border">
   <ion-toolbar class="ion-no-border">
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleAndPlaySound()">
+        <ion-icon [name]="isPaused ? 'volume-mute' : 'volume-high'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-title class="ion-no-border">
-      Bienvenue sur notre application !
+
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content
- class="ion-padding" class="ion-text-center">
-  <!-- <p>Cliquez sur le bouton "Start" pour commencer.</p>
-  <ion-button mode="ios" (click)="startFunction()">Start</ion-button> -->
+<ion-content class="quiz-background">
+  <div class="welcome-message ion-text-center">
+    <h1> Bienvenue sur MboaCulture !</h1><br> <br><br>
+    <h2>Prêt à relever le défi ?</h2><br>
+    <p>Touchez "Jouer" pour commencer</p>
+  </div>
 
-  <ion-row class="buttons" >
-    <ion-col size="12">
-      <ion-button routerLink="/quiz" color="light" expand="block" class="playButton " (click)="startFunction()"> Start Playing</ion-button>
+  <div class="ion-text-center quiz-buttons">
+    <ion-button color="success" expand="block" class="play-button" (click)="startFunction()">
+      <ion-icon name="play-circle-outline"></ion-icon>
+      Jouer
+    </ion-button>
 
-      <ion-button color="dark" class="helpButton"  >
-        <ion-icon></ion-icon> How to play
-      </ion-button>
-    </ion-col>
-  </ion-row>
+    <ion-button color="medium" class="help-button" id="open-modal">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      Comment jouer
+    </ion-button>
+  </div>
 
+  
+  <ion-modal #modal trigger="open-modal">
+    <ng-template>
+      <ion-content>
+        <div class="modal-content">
+          <h2>Comment jouer à MboaCulture</h2>
+          <p>Bienvenue dans MboaCulture, l'application de quiz qui mettra à l'épreuve vos connaissances sur le Mboa ! Voici comment jouer :</p>
+          <ul>
+            <li><strong>Commencer le jeu :</strong> Appuyez sur le bouton "Jouer" pour lancer un nouveau quiz.</li>
+            <li><strong>Répondre aux questions :</strong> Chaque quiz comprend une série de questions à choix multiples. Sélectionnez la réponse que vous pensez être correcte.</li>
+            <li><strong>Limite de temps :</strong> Vous avez un temps limité pour répondre à chaque question. Soyez rapide pour marquer plus de points !</li>
+            <li><strong>Score :</strong> Votre score dépend de la rapidité et de la précision de vos réponses.</li>
+            <li><strong>Fin du jeu :</strong> Le jeu se termine après la dernière question. Vous pouvez voir votre score final et tenter de le battre lors de votre prochaine partie !</li>
+          </ul>
+          <p>Amusez-vous bien et bonnes découvertes sur MboaCulture !</p>
+          <!-- <ion-button class="close-button">Fermer</ion-button> -->
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <!-- Animation ou illustration ludique -->
+  <div class="quiz-animation">
+    <!-- Vous pouvez intégrer ici une animation ou une image amusante liée au thème du quiz -->
+  </div>
 </ion-content>
