@@ -6,6 +6,8 @@ import { Device } from '@capacitor/device';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 
+
+
 import{ IonicStorageModule} from '@ionic/storage-angular'
 import { Drivers } from '@ionic/storage';
 import * as CordovaSQLiteDriver from 'localforage-cordovasqlitedriver'

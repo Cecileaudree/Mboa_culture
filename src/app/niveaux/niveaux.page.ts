@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QuizService } from '../services/quiz.service';
 
+
 @Component({
   selector: 'app-niveaux',
   templateUrl: './niveaux.page.html',
@@ -13,19 +14,20 @@ export class NiveauxPage implements OnInit {
 
   categorie:any
   niveaux:any
+  data:any
 
   ngOnInit() {
     const navigation = this.route.getCurrentNavigation();
 
     if (navigation?.extras && navigation.extras.state) {
-      this.categorie = navigation.extras.state['catgorie'];
+      this.data = navigation.extras.state['datas'];
      }
      else {
       // Redirigez l'utilisateur vers la page du quiz s'il n'y a pas de score
       this.route.navigate(['/categories']);
     }
 
-    console.log(this.categorie)
+    console.log(this.data)
 
     this.quiz.getIng4("niveaux").then((reponse:any)=>{
       this.niveaux=reponse
@@ -37,10 +39,18 @@ export class NiveauxPage implements OnInit {
 
    const datas={
       niv:item.id,
-      cat:this.categorie
+      cat:this.data.cat,
+      nbre_joueur:parseInt(this.data.nbre_joueurs)
     }
 
-    this.route.navigate(['/quiz'], { state: {data:datas}} )
+    if( datas.nbre_joueur==1){
+      this.route.navigate(['/quiz'], { state: {data:datas}} )
+    }
+
+    if(datas.nbre_joueur>1){
+      this.route.navigate(['/quiz-p'], { state: {data:datas}} )
+    }
+
   }
 
 }

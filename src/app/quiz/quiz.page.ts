@@ -13,11 +13,6 @@ export class QuizPage {
     //this.translate.setDefaultLang('en'); // Langue par défaut
    // this.translate.use('en');
   }
-  questions: any[] = [
-    { question: 'Quelle est la capitale de la France?', options: ['Paris', 'Londres', 'Berlin', 'Rome'], correctAnswer: 'Paris' },
-    { question: 'Combien de planètes y a-t-il dans notre système solaire?', options: ['7', '8', '9', '10'], correctAnswer: '8' },
-    // Ajoutez d'autres questions ici
-  ];
 
   data:any
   questionNiVCat:any[]=[]
@@ -57,8 +52,9 @@ export class QuizPage {
           this.questionNiVCat.push(reponse[i])
         }
       }
-      console.log(this.questionNiVCat)
+      //console.log(this.questionNiVCat)
       this.taille=this.questionNiVCat.length
+      this.questionNiVCat = this.aleatoire(this.questionNiVCat);
       this.PoseQuestion=this.questionNiVCat[this.compteur].Libelle_question
       this.id_question=this.questionNiVCat[this.compteur].id
 
@@ -82,6 +78,14 @@ export class QuizPage {
 
     })
 
+  }
+
+  aleatoire(questions: any[]): any[]{
+    for (let i = questions.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [questions[i], questions[j]] = [questions[j], questions[i]];
+    }
+    return questions;
   }
 
   startQuiz() {

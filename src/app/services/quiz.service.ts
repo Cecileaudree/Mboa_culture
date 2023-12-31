@@ -28,7 +28,7 @@ export class QuizService {
     return this.http.get( this.url+"/reponses")
   }
 
-  async createDatabase(){
+  async createDatabase(){ 
     await this.storage.create();
     await this.storage.defineDriver(cordovaSQLiteDriver);
   }

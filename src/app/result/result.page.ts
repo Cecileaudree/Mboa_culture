@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Joueur } from '../model/joueurs';
 
 @Component({
   selector: 'app-result',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class ResultPage implements OnInit {
   data={
     taille:0,
-    score:0
+    jF:[] as Joueur[]
   }
 
   constructor(private router: Router) {}
@@ -24,10 +25,12 @@ export class ResultPage implements OnInit {
       this.router.navigate(['/quiz']);
     }
 
+    console.log(this.data)
+
     this.data.taille=this.data.taille*3
   }
 
   reload(){
-    this.router.navigate(['/categories'])
+    this.router.navigate(['/nombre-jouers'])
   }
 }

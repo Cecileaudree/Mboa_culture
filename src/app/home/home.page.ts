@@ -10,7 +10,7 @@ import { ModalController } from '@ionic/angular';
 
 
 @Component({
-  selector: 'app-home', 
+  selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
@@ -84,8 +84,8 @@ export class HomePage {
   //   });
   //   return await modal.present();
   // }
-    
-    
+
+
   // async showInstructions() {
   //   const instructions = `
   //     <ion-content style="background-color: #f0f0f0; padding: 20px;">
@@ -104,23 +104,23 @@ export class HomePage {
   //       </div>
   //     </ion-content>
   //   `;
-  
+
   //   console.log('Instructions:', instructions);
-  
+
   //   const modal = await this.modalController.create({
   //     component: DynamicModalContentComponent,
   //     componentProps: { content: instructions },
   //     cssClass: 'custom-modal-size',
   //   });
-  
+
   //   return await modal.present();
   // }
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
 
     loading = true
     listCategorie:any[]=[]
@@ -131,20 +131,20 @@ export class HomePage {
     categoriebd:any
     questiondb:any
     reponsesbd:any
- 
+
 
 
     // toggleSound() {
     //   this.sound.mute(!this.sound.mute());
     // }
-    
+
 
   async ngOnInit() {
       this.initialize_bd()
   }
 
   async startFunction() {
-    this.router.navigate(['/categories'])
+    this.router.navigate(['/nombre-jouers'])
   }
 
   async presentActionSheet(){

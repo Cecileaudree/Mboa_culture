@@ -8,7 +8,11 @@
   <ion-card>
     <ion-card-content>
       <h2>Votre score :</h2>
-      <h1>{{ data.score }} / {{data.taille}}</h1>
+      <div *ngFor="let item of data.jF">
+        <h2>{{item.nom}}</h2>
+        <h1>{{ item.points }} / {{data.taille}}</h1>
+      </div>
+      
     </ion-card-content>
   </ion-card>
 

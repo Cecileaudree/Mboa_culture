@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ "QUIZ_TITLE" | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+    </ion-card-header>
+    <ion-card-content>
+      {{PoseQuestion}}
+
+      <div *ngFor="let joueur of joueurs; let i=index">
+        <ion-list *ngIf="currentPlayerIndex === i">
+          <ion-progress-bar [value]="progression"></ion-progress-bar>
+          <ion-item *ngFor="let item of reponses" (click)="onReponseClick(item,joueur)">
+            {{item.choix}}
+          </ion-item>
+        </ion-list>
+    </div>
+    </ion-card-content>
+  </ion-card>
+
+
+
+
+
+</ion-content>

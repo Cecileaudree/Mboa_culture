@@ -31,6 +31,14 @@ const routes: Routes = [
     path: 'niveaux',
     loadChildren: () => import('./niveaux/niveaux.module').then( m => m.NiveauxPageModule)
   },
+  {
+    path: 'nombre-jouers',
+    loadChildren: () => import('./nombre-jouers/nombre-jouers.module').then( m => m.NombreJouersPageModule)
+  },
+  {
+    path: 'quiz-p',
+    loadChildren: () => import('./quiz-p/quiz-p.module').then( m => m.QuizPPageModule)
+  },
 
 ];
 
