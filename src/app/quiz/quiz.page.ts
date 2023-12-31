@@ -22,12 +22,13 @@ export class QuizPage {
   id_question:any
   score1=0
   taille:any
+  progression=0
 
   // currentQuestion = 0;
   // score = 0;
 
   ngOnInit(): void {
-
+    this.score1=0
     this.translate.use('en');
       // Récupérer la traduction pour la clé 'QUIZ_TITLE'
       // this.translate.get('QUIZ_TITLE').subscribe((translation: string) => {
@@ -96,23 +97,12 @@ export class QuizPage {
 
 
 
-  // checkAnswer(answer: string) {
-  //   if (answer === this.questions[this.currentQuestion].correctAnswer) {
-  //     this.score++;
-  //   }
-  //   this.nextQuestion();
-  // }
-
-
-
-
-
-
 
   onReponseClick(correct: any): void {
-
+    console.log(correct.est_correct)
     if(correct.est_correct="vraie"){
       this.score1=correct.points+this.score1
+      
     }
 
     if (this.compteur < this.questionNiVCat.length - 1) {
@@ -130,6 +120,7 @@ export class QuizPage {
         }
         console.log(this.reponses);
       });
+      this.miseAJourProgression();
     }
     else {
       // L'utilisateur a terminé toutes les questions, vous pouvez ajouter une logique pour le rediriger vers une autre page, par exemple.
@@ -137,60 +128,17 @@ export class QuizPage {
         taille:this.compteur+1,
         score:this.score1
       }
-      this.route.navigate(['/result'], { state: { resulta: datas } });
+      this.route.navigate(['/resulta-p'], { state: { resulta: datas } });
     }
 
 }
 
 
+miseAJourProgression() {
+  this.progression = (this.compteur + 1) / this.questionNiVCat.length;
+}
 
 
 
 
-
-
-
-
-  // nextQuestion() {
-  //   if (this.currentQuestion < this.questions.length - 1) {
-  //     this.currentQuestion++;
-  //   } else {
-  //     // Quiz terminé, redirigez vers la page des résultats avec le score
-  //     this.route.navigate(['/result'], { state: { score: this.score } });
-  //   }
-  // }
-
-
-
-
-
-
-
-
-
-
-
-  // async LosingConnetion() {
-  //   const toast = await this.toastController.create({
-  //     message: 'Connexion Internet perdue.',
-  //     duration: 3500,
-  //     icon: 'planet-outline',
-  //     color: 'danger',
-  //     position: 'top',
-  //   });
-
-  //   await toast.present();
-  // }
-
-  // async GreatConnetion() {
-  //   const toast = await this.toastController.create({
-  //     message: 'Connexion à internet réétablie.',
-  //     duration: 3500,
-  //     icon: 'wifi-outline',
-  //     color: 'success',
-  //     position: 'top',
-  //   });
-
-  //   await toast.present();
-  // }
 }

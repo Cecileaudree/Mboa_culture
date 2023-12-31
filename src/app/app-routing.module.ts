@@ -38,7 +38,15 @@ const routes: Routes = [
   {
     path: 'quiz-p',
     loadChildren: () => import('./quiz-p/quiz-p.module').then( m => m.QuizPPageModule)
+  },  {
+    path: 'resulta-p',
+    loadChildren: () => import('./resulta-p/resulta-p.module').then( m => m.ResultaPPageModule)
   },
+  {
+    path: 'propose-question',
+    loadChildren: () => import('./propose-question/propose-question.module').then( m => m.ProposeQuestionPageModule)
+  },
+
 
 ];
 

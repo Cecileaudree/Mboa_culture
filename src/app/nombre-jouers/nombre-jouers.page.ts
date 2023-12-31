@@ -61,5 +61,9 @@ export class NombreJouersPage implements OnInit {
 
   }
 
+  Ajout_question(){
+    this.route.navigate(['/propose-question'])
+  }
+
 
 }

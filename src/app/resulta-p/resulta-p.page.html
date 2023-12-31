@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Résultats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <h2>Votre score :</h2>
+        <h1>{{ data.score }} / {{data.taille}}</h1>
+      
+    </ion-card-content>
+  </ion-card>
+
+<ion-button (click)="reload()">recommener</ion-button>
+</ion-content>

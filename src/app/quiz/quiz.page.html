@@ -6,28 +6,9 @@
 
 <ion-content class="ion-padding">
 
-  <!-- <ion-card>
-    <ion-card-header>
-      Question {{ currentQuestion + 1 }}
-    </ion-card-header>
-    <ion-card-content>
-      {{ questions  [currentQuestion].question }}
-      <ion-list>
-        <ion-item *ngFor="let option of questions[currentQuestion].options" (click)="checkAnswer(option)">
-          {{ option }}
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card> -->
+ 
 
-
-  <!-- <div class="quiz-question">
-    <h2>{{ PoseQuestion }}</h2>
-  </div>
-
-  <div class="quiz-answer" (click)="onAnswerClick(item)" [class.selected]="item.isSelected">
-    <span class="quiz-answer-text">{{ item.choix }}</span>
-  </div> -->
+  
 <br> <br> <br> <br>
 
   <ion-card>
@@ -35,6 +16,7 @@
       <div class="quiz-question">{{ PoseQuestion }}</div>
     </ion-card-header>
     <ion-card-content>
+      <ion-progress-bar [value]="progression"></ion-progress-bar>
       <div class="quiz-answer" *ngFor="let item of reponses" (click)="onReponseClick(item)">
         <span class="quiz-answer-text">{{ item.choix }}</span>
       </div>
