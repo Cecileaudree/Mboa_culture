@@ -7,6 +7,7 @@ import { ModalController } from '@ionic/angular';
 
 
 import { HomePageRoutingModule } from './home-routing.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
+    TranslateModule.forChild(),
     HomePageRoutingModule,
     
   ],

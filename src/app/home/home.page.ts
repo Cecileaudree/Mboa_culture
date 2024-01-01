@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {Storage} from '@ionic/storage'
 import { Howl } from 'howler';
 import { ModalController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 // import { DynamicModalContentComponent } from '../dynamic-modal-content-component/dynamic-modal-content-component.component';
 
 
@@ -26,7 +27,8 @@ export class HomePage {
     private router: Router,
     private quiz: QuizService,
     private storage: Storage,
-    public modalController: ModalController
+    public modalController: ModalController,
+    private translate: TranslateService
   ) {
     // Démarrer la musique automatiquement au chargement de la page
     this.loadAndPlaySound();

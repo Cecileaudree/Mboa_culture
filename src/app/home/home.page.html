@@ -13,9 +13,9 @@
 
 <ion-content class="quiz-background">
   <div class="welcome-message ion-text-center">
-    <h1> Bienvenue sur MboaCulture !</h1><br> <br><br>
-    <h2>Prêt à relever le défi ?</h2><br>
-    <p>Touchez "Jouer" pour commencer</p>
+    <h1> {{ "Quiz_home" | translate }}</h1><br> <br><br>
+    <h2>{{"Quiz_home_question" | translate}}</h2><br>
+    <p>{{"Quiz_home_indication"| translate}}</p>
   </div>
 
   <div class="ion-text-center quiz-buttons">
@@ -26,7 +26,7 @@
 
     <ion-button color="medium" class="help-button" id="open-modal">
       <ion-icon name="information-circle-outline"></ion-icon>
-      Comment jouer
+     {{"Quiz_home_comment"| translate}}
     </ion-button>
   </div>
 
@@ -35,16 +35,16 @@
     <ng-template>
       <ion-content>
         <div class="modal-content">
-          <h2>Comment jouer à MboaCulture</h2>
-          <p>Bienvenue dans MboaCulture, l'application de quiz qui mettra à l'épreuve vos connaissances sur le Mboa ! Voici comment jouer :</p>
+          <h2>{{"Quiz_home_regle1" | translate}}</h2>
+          <p>{{"Quiz_home_regle11" | translate}}</p>
           <ul>
-            <li><strong>Commencer le jeu :</strong> Appuyez sur le bouton "Jouer" pour lancer un nouveau quiz.</li>
-            <li><strong>Répondre aux questions :</strong> Chaque quiz comprend une série de questions à choix multiples. Sélectionnez la réponse que vous pensez être correcte.</li>
-            <li><strong>Limite de temps :</strong> Vous avez un temps limité pour répondre à chaque question. Soyez rapide pour marquer plus de points !</li>
-            <li><strong>Score :</strong> Votre score dépend de la rapidité et de la précision de vos réponses.</li>
-            <li><strong>Fin du jeu :</strong> Le jeu se termine après la dernière question. Vous pouvez voir votre score final et tenter de le battre lors de votre prochaine partie !</li>
+            <li><strong>{{"Quiz_home_regle2" | translate}}</strong> {{"Quiz_home_regle21" | translate}}</li>
+            <li><strong>{{"Quiz_home_regle3" | translate}}</strong> {{"Quiz_home_regle31" | translate}}</li>
+            <li><strong>{{"Quiz_home_regle4" | translate}}</strong> {{"Quiz_home_regle41" | translate}}</li>
+            <li><strong>{{"Quiz_home_regle5" | translate}}</strong> {{"Quiz_home_regle51" | translate}}</li>
+            <li><strong>{{"Quiz_home_regle6" |translate}}</strong> {{"Quiz_home_regle61" | translate}}</li>
           </ul>
-          <p>Amusez-vous bien et bonnes découvertes sur MboaCulture !</p>
+          <p>{{"Quiz_home_regle" | translate}}</p>
           <!-- <ion-button class="close-button">Fermer</ion-button> -->
         </div>
       </ion-content>

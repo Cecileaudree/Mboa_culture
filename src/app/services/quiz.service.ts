@@ -36,23 +36,6 @@ export class QuizService {
   categoriebd:any
   Question_bd:any
 
-  // setIng4(){
-  //   this.getListOfCategorie().subscribe((reponse:any)=>{
-  //     const categories=reponse
-  //     this.categoriebd={id:categories.data[0].id , nom_categorie:categories.data[0].Libelle_categorie,
-  //       Image_categorie:categories.data[0].Image_categorie}
-  //     this.storage.set("categorie",this.categoriebd)
-  //   })
-
-  //   this.getListOfQuestions().subscribe((reponse:any)=>{
-  //     const question=reponse
-  //     this.Question_bd={id:question[0].id ,Libelle_question:question[0].Libelle_question, is_active:question[0].is_active,
-  //       niveaux_id:question[0].niveaux_id,categories_id:question[0].categories_id}
-  //     this.storage.set("Question",this.Question_bd)
-  //   })
-
-
-  // }
 
   suppIng4(table:string){
     this.storage.remove(table);

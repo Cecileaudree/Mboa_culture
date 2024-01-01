@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-nombre-jouers',
@@ -9,7 +10,8 @@ import { AlertController } from '@ionic/angular';
 })
 export class NombreJouersPage implements OnInit {
 
-  constructor(private route:Router,private alertController: AlertController) { }
+  constructor(private route:Router,private alertController: AlertController,
+    private translate: TranslateService) { }
   joueurs:any
 
   ngOnInit() {

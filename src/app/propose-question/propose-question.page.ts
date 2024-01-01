@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonModal } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-propose-question',
@@ -7,9 +9,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProposeQuestionPage implements OnInit {
 
-  constructor() { }
+  constructor(private auth:AuthService) { }
+
+  @ViewChild(IonModal) modal!:IonModal;
+
+  is_open:boolean=false
+
+  question:any={}
 
   ngOnInit() {
+  }
+
+  close(){
+    this.is_open=false
+     this.modal.dismiss
+  }
+
+  save(){
+    
+    // this.auth.PostStudent(this.etudiant).subscribe((reponse)=>{
+    //   console.log("reussi")
+    // })
+
+    this.is_open=false
+    this.modal.dismiss();
+ }
+
+  handleclose(ev:any){
+    this.is_open=false
   }
 
 }

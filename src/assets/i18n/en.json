@@ -1,9 +1,28 @@
 {
-  "QUIZ_TITLE": "Quiz en anglais",
+  "QUIZ_TITLE": "Quiz",
+  "Quiz_home":"Welcome to MboaCulture!",
+  "Quiz_home_question":"ready to take up the challenge?",
+  "Quiz_home_indication":"Touch 'Play' to start",
+  "Quiz_home_comment":"How to play",
+  "Quiz_home_regle1":"How to play MboaCulture",
+  "Quiz_home_regle11":"Welcome to MboaCulture, the quiz application that will put your knowledge of Mboa to the test! Here's how to play:",
+  "Quiz_home_regle2":"Start the game",
+  "Quiz_home_regle21":"Press the 'Play' button to start a new quiz.",
+  "Quiz_home_regle3":"Answer the questions:",
+  "Quiz_home_regle31":"Each quiz consists of a series of multiple-choice questions. Select the answer you think is correct.",
+  "Quiz_home_regle4":"Time limit",
+  "Quiz_home_regle41":"You have a limited time to answer each question. Be quick to score more points!",
+  "Quiz_home_regle5":"Score",
+  "Quiz_home_regle51":"Your score depends on the speed and accuracy of your answers.",
+  "Quiz_home_regle6":"End of the game",
+  "Quiz_home_regle61":"The game ends after the last question. You can see your final score and try to beat it the next time you play!",
+  "Quiz_home_regle":"Enjoy your visit to MboaCulture!",
+  "Quiz_nbre_joueur1":"Playing Alone",
+  "Quiz_nbre_joueurP":"several Players",
+  "Quiz_propose_question":"plusieurs Joueurs",
   
-  "QUESTION": "Question",
   "OPTION": "Option",
-  "NEXT_QUESTION": "Next Question",
+  "NEXT_QUESTION": "Question suivante",
   "RESULTS": "Results",
-  "SCORE": "Your Score"
+  "SCORE": "Your score"
 }
