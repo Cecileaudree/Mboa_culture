@@ -1,14 +1,33 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>{{ "QUIZ_TITLE" | translate }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+
+<!-- <div>
+  <div color="transparent" >
+      <span  class="catniv" >
+        <ion-badge color="dark"><ion-icon name="home-outline"></ion-icon></ion-badge>&nbsp;
+        <ion-badge color="dark">catEnCours<ion-icon name="chevron-forward-outline"></ion-icon>nivEnCours</ion-badge>
+      <ion-badge color="dark" class="compte" shape="round" >taille/total</ion-badge>
+    </span>
+    <ion-button >
+      <ion-badge color="warning">5 Points</ion-badge> &nbsp; <p color="white">En Jeu Pendant</p> &nbsp;<ion-badge color="warning">secondes</ion-badge>
+    </ion-button>
+  
+  </div>
+</div> -->
 
 <ion-content class="ion-padding">
 
- 
-
-  
+  <span  class="catniv" >
+    <ion-badge color="dark"><ion-icon name="home-outline"></ion-icon></ion-badge>&nbsp;
+    <ion-badge color="dark">catEnCours<ion-icon name="chevron-forward-outline"></ion-icon>nivEnCours</ion-badge>&nbsp;
+  <ion-badge color="dark" class="compte" shape="round" >taille/total</ion-badge>
+  </span>
+  <span class="encours">
+    <ion-badge color="warning">5 Points</ion-badge> &nbsp; <p class="blanc">En Jeu Pendant</p> &nbsp;<ion-badge color="warning">49secondes</ion-badge>
+  </span>
 <br> <br> <br> <br>
 
   <ion-card>
@@ -16,10 +35,15 @@
       <div class="quiz-question">{{ PoseQuestion }}</div>
     </ion-card-header>
     <ion-card-content>
-      <ion-progress-bar [value]="progression"></ion-progress-bar>
+      <ion-progress-bar [color]="getProgressBarColor()" [value]="progression"></ion-progress-bar>
       <div class="quiz-answer" *ngFor="let item of reponses" (click)="onReponseClick(item)">
         <span class="quiz-answer-text">{{ item.choix }}</span>
       </div>
+      <!-- <div class="quiz-answer" *ngFor="let item of reponses" (click)="onReponseClick(item)">
+        <ion-button [color]="item.selected ? (item.est_correct === 'vraie' ? 'success' : 'danger') : 'default'">
+          <span class="quiz-answer-text">{{ item.choix }}</span>
+        </ion-button>
+      </div> -->
     </ion-card-content>
   </ion-card>
   

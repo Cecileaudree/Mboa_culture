@@ -1,13 +1,24 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>nombreJouers</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
+  <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+  <div class="button-container">
+    <ion-button expand="block" class="custom-button" (click)="OneJoeur()">
+      {{"Quiz_nbre_joueur1" | translate}}
+    </ion-button>
 
-    <ion-button (click)="OneJoeur()"> {{"Quiz_nbre_joueur1" | translate}}</ion-button>
-    <ion-button (click)="Multi_joueurs()"> {{"Quiz_nbre_joueurP" | translate}}</ion-button>
-    <ion-button (click)="Ajout_question()">{{"Quiz_propose_question" | translate}}</ion-button>
+    <ion-button expand="block" class="custom-button" (click)="Multi_joueurs()">
+      {{"Quiz_nbre_joueurP" | translate}}
+    </ion-button>
+
+    <ion-button expand="block" class="custom-button" (click)="Ajout_question()">
+      {{"Quiz_propose_question" | translate}}
+    </ion-button>
+  </div>
 
 </ion-content>
+

@@ -27,9 +27,10 @@ export class NombreJouersPage implements OnInit {
   //   this.route.navigate(['/categorie'],{state:{joueurs:joueurs}})
   // }
 
-  async Multi_joueurs(){
+  async Multi_joueurs() {
     const prompt = await this.alertController.create({
-      header: 'Nombre de joueurs',
+      cssClass: 'custom-multi-joueurs-alert', // Ajout de la classe CSS
+      // header: 'Nombre de joueurs',
       message: 'Veuillez entrer le nombre de joueurs:',
       inputs: [
         {
@@ -39,29 +40,30 @@ export class NombreJouersPage implements OnInit {
         },
       ],
       buttons: [
-        {
-          text: 'Annuler',
-          handler: () => {
-            console.log('Annuler');
-          },
-        },
+        // {
+        //   text: 'Annuler',
+        //   cssClass: 'alert-button-cancel',
+        //   handler: () => {
+        //     console.log('Annuler');
+        //   },
+        // },
         {
           text: 'OK',
+          cssClass: 'alert-button-confirm',
           handler: (data) => {
             console.log('Nombre de joueurs saisi :', data.nombreDeJoueurs);
-
+  
             // Appeler la fonction pour configurer le nombre de joueurs
-            this.joueurs=data.nombreDeJoueurs
-            this.route.navigate(['/categories'],{state:{joueurs:this.joueurs}})
+            this.joueurs = data.nombreDeJoueurs;
+            this.route.navigate(['/categories'], { state: { joueurs: this.joueurs }});
           },
         },
       ],
     });
-
+  
     await prompt.present();
-
-
   }
+  
 
   Ajout_question(){
     this.route.navigate(['/propose-question'])

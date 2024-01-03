@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.blanc{
+    color: #f8f8f8;
+    font-family: 'Chewy', cursive;
+  }
+
+  .bla{
+    color: #f8f8f8;
+    font-family: 'Bangers', cursive;
+  }
+
+ion-content {
+    --ion-background-color: linear-gradient(#1D976C, #93F9B9) ;
+  
+    }
+
+    .score-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 10px;
+      }
+      
+      .final-score {
+        font-size: 2em;
+        color: var(--ion-color-dark);
+        margin: 10px 0;
+      }
+      
+      .score-details {
+        // display: flex;
+        // justify-content: space-around;
+        margin-bottom: 15px;
+      }
+      
+      ion-card {
+        max-width: 500px;
+        text-align: center;
+      }
+      
+      ion-badge {
+        font-size: 1em;
+      }
+      
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        /* Espacement entre les boutons */
+        max-width: 300px;
+        /* Largeur maximale pour les boutons */
+        margin: auto;
+        /* Centrer les boutons horizontalement */
+      }
+      
+      .custom-button {
+        --border-radius: 10px;
+        /* Arrondir les bords des boutons */
+        --background: var(--ion-color-success);
+        /* Couleur de fond principale */
+        --background-activated: var(--ion-color-success-shade);
+        /* Couleur au toucher */
+        --background-hover: var(--ion-color-success-tint);
+        /* Couleur au survol */
+        --transition: 0.3s;
+        /* Durée de l'animation de transition */
+        --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Ombre du bouton */
+        --transform: translateY(0); /* Position initiale Y */
+        font-family: 'Chewy', cursive;
+        --background: linear-gradient( #1D976C);
+        --color:#2c3e50;
+      }
+      .custom-button:active,
+      .custom-button:focus {
+      --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre réduite pour l'effet enfoncé */
+      --transform: translateY(2px); /* Déplace légèrement le bouton vers le bas */
+      }
+      
+      .custom-button:hover {
+        --transform: scale(1.05);
+        --background: linear-gradient( #93F9B9);
+      
+        /* Légère agrandissement au survol */
+      }

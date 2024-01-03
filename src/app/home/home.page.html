@@ -13,22 +13,37 @@
 
 <ion-content class="quiz-background">
   <div class="welcome-message ion-text-center">
-    <h1> {{ "Quiz_home" | translate }}</h1><br> <br><br>
+    <!-- <h1> {{ "Quiz_home" | translate }}</h1><br> <br><br> -->
+    <!-- <h1><span *ngFor="let letter of letters">{{ letter }}</span></h1><br> <br><br>  -->
+    <h1>
+      <span *ngFor="let item of getLettersWithDelay()" style="--n:{{item.delay}}">
+        {{ item.char }}
+      </span>
+    </h1>
     <h2>{{"Quiz_home_question" | translate}}</h2><br>
     <p>{{"Quiz_home_indication"| translate}}</p>
   </div>
 
   <div class="ion-text-center quiz-buttons">
+    <!-- Bouton Jouer -->
     <ion-button color="success" expand="block" class="play-button" (click)="startFunction()">
       <ion-icon name="play-circle-outline"></ion-icon>
       Jouer
     </ion-button>
-
+  
+    <!-- Bouton Comment jouer ? -->
     <ion-button color="medium" class="help-button" id="open-modal">
       <ion-icon name="information-circle-outline"></ion-icon>
-     {{"Quiz_home_comment"| translate}}
+      {{"Quiz_home_comment"| translate}}
+    </ion-button>
+  
+    <!-- Bouton Partager -->
+    <ion-button color="tertiary" class="share-button" (click)="shareContent()">
+      <ion-icon name="share-social-outline"></ion-icon>
+      Partager
     </ion-button>
   </div>
+  
 
   
   <ion-modal #modal trigger="open-modal">

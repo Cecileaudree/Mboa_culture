@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+ion-content {
+    --ion-background-color: linear-gradient(#1D976C, #93F9B9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+ion-header {
+    ion-toolbar {
+        --background: linear-gradient(#93F9B9);
+        box-shadow: none;
+    }
+
+    position: absolute;
+    /* Ajout du point-virgule ici */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Espacement entre les boutons */
+    max-width: 300px;
+    /* Largeur maximale pour les boutons */
+    margin: auto;
+    /* Centrer les boutons horizontalement */
+}
+
+.custom-button {
+    --border-radius: 10px;
+    /* Arrondir les bords des boutons */
+    --background: var(--ion-color-success);
+    /* Couleur de fond principale */
+    --background-activated: var(--ion-color-success-shade);
+    /* Couleur au toucher */
+    --background-hover: var(--ion-color-success-tint);
+    /* Couleur au survol */
+    --transition: 0.3s;
+    /* Durée de l'animation de transition */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Ombre du bouton */
+    --transform: translateY(0); /* Position initiale Y */
+    font-family: 'Chewy', cursive;
+    --background: linear-gradient( #1D976C);
+    --color:#2c3e50;
+}
+.custom-button:active,
+.custom-button:focus {
+  --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre réduite pour l'effet enfoncé */
+  --transform: translateY(2px); /* Déplace légèrement le bouton vers le bas */
+}
+
+.custom-button:hover {
+    --transform: scale(1.05);
+    --background: linear-gradient( #93F9B9);
+
+    /* Légère agrandissement au survol */
+}
+
+ion-alert {
+    --background: #fff; /* Couleur de fond */
+    --border-radius: 20px; /* Bord arrondi */
+    --max-width: 500px; /* Largeur maximale */
+    --min-width: 300px; /* Largeur minimale */
+  }
+  
+  ion-alert .alert-wrapper {
+    --color: #000; /* Couleur du texte */
+  }
+  
+  ion-alert .alert-title {
+    font-size: 1.2em; /* Taille de la police du titre */
+    font-weight: bold; /* Poids de la police */
+  }
+  
+  ion-alert .alert-message {
+    font-size: 1em; /* Taille de la police du message */
+  }
+  
+  ion-alert .alert-button-group button {
+    --background: #4caf50; /* Couleur de fond des boutons */
+    --color: white; /* Couleur du texte des boutons */
+  }
+  
+
+  ion-alert input {
+    --background: #f2f2f2; /* Couleur de fond du champ de saisie */
+    --color: #333; /* Couleur du texte du champ de saisie */
+    --padding: 15px; /* Espace intérieur */
+    border-radius: 10px; /* Bord arrondi */
+    border: 1px solid #ddd; /* Bordure */
+  }

@@ -1,10 +1,10 @@
-<ion-header [translucent]="true">
+<!-- <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>propose-question</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
-<ion-content [fullscreen]="true">
+<!-- <ion-content [fullscreen]="true">
   <ion-modal [isOpen]="is_open" didDismiss="handleClose($event)">
 
     <ng-template>
@@ -55,4 +55,82 @@
     </ng-template>
 
   </ion-modal>
+</ion-content> -->
+
+
+
+<ion-content padding>
+  <ion-card class="question-card">
+    <ion-card-header>
+      <ion-card-title class="polices">Nous envoyer votre Question</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content class="form-content">
+      <ion-item class="form-item">
+        <ion-label position="floating" class="police">Libellé de la Question</ion-label>
+        <ion-input type="text" placeholder="Entrez le libellé de la question"></ion-input>
+      </ion-item>
+
+      <ion-item class="form-item">
+        <ion-label position="floating" class="police">Catégorie</ion-label><br><br>
+        <ion-select placeholder="Sélectionnez une catégorie" class="police">
+          <ion-select-option value="population">Population</ion-select-option>
+          <ion-select-option value="culture">Culture</ion-select-option>
+          <ion-select-option value="musique">Musique</ion-select-option>
+          <ion-select-option value="sport">Sport</ion-select-option>
+          <ion-select-option value="organisation">Organisation des ethnies</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+      <ion-item class="form-item">
+        <ion-label position="floating" class="police">Niveau</ion-label><br><br>
+        <ion-select placeholder="Sélectionnez un niveau" class="police">
+          <ion-select-option value="debutant">Débutant</ion-select-option>
+          <ion-select-option value="intermediaire">Intermédiaire</ion-select-option>
+          <ion-select-option value="expert">Expert</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+
+      <div class="response-container">
+        <ion-item >
+          <ion-label position="floating" class="police">Réponse 1</ion-label><br>
+          <ion-input type="text" placeholder="Entrez la réponse"></ion-input>
+        </ion-item>
+
+        <ion-item class="form-item checkbox-item">
+          <ion-label class="police">Correcte?</ion-label>
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+
+        <ion-item class="form-item">
+          <ion-label position="floating" class="police">Points</ion-label>
+          <ion-input type="number" placeholder="0"></ion-input>
+        </ion-item>
+      </div>
+
+      <div class="response-container">
+        <ion-item class="form-item">
+          <ion-label position="floating" class="police">Réponse 2</ion-label><br>
+          <ion-input class="ionInput" type="text" placeholder="Entrez la réponse"></ion-input>
+        </ion-item>
+
+        <ion-item class="form-item checkbox-item">
+          <ion-label class="police">Correcte?</ion-label>
+          <ion-checkbox slot="start"></ion-checkbox>
+        </ion-item>
+
+        <ion-item class="form-item">
+          <ion-label position="floating" class="police">Points</ion-label>
+          <ion-input type="number" placeholder="0"></ion-input>
+        </ion-item>
+      </div>
+
+      
+
+      <!-- Ajouter d'autres réponses au besoin -->
+
+      <ion-button expand="full" color="success" class="submit-button">Soumettre</ion-button>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

@@ -1,23 +1,34 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>{{ "QUIZ_TITLE" | translate }}</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 
 <ion-content class="ion-padding">
 
+  <span  class="catniv" >
+    <ion-badge color="dark"><ion-icon name="home-outline"></ion-icon></ion-badge>&nbsp;
+    <ion-badge color="dark">catEnCours<ion-icon name="chevron-forward-outline"></ion-icon>nivEnCours</ion-badge>&nbsp;
+  <ion-badge color="dark" class="compte" shape="round" >taille/total</ion-badge>
+  </span>
+  <span class="encours">
+    <ion-badge color="warning">5 Points</ion-badge> &nbsp; <p class="blanc">En Jeu Pendant</p> &nbsp;<ion-badge color="warning">49secondes</ion-badge>
+  </span>
+<br> <br> <br> <br>
+
   <ion-card>
     <ion-card-header>
+      <div class="quiz-question">{{ PoseQuestion }}</div>
     </ion-card-header>
     <ion-card-content>
-      {{PoseQuestion}}
+      <!-- {{PoseQuestion}} -->
 
       <div *ngFor="let joueur of joueurs; let i=index">
         <ion-list *ngIf="currentPlayerIndex === i">
-          <ion-progress-bar [value]="progression"></ion-progress-bar>
-          <ion-item *ngFor="let item of reponses" (click)="onReponseClick(item,joueur)">
-            {{item.choix}}
-          </ion-item>
+          <ion-progress-bar [color]="getProgressBarColor()" [value]="progression"></ion-progress-bar>
+          <div class="quiz-answer" *ngFor="let item of reponses" (click)="onReponseClick(item,joueur)">
+            <span class="quiz-answer-text">{{ item.choix }}</span>
+          </div>
         </ion-list>
     </div>
     </ion-card-content>

@@ -78,6 +78,7 @@ export class QuizPage {
 
 
     })
+    this.getProgressBarColor()
 
   }
 
@@ -137,6 +138,18 @@ export class QuizPage {
 miseAJourProgression() {
   this.progression = (this.compteur + 1) / this.questionNiVCat.length;
 }
+
+getProgressBarColor() {
+  const ratio = this.score1 / this.taille;
+  if (ratio < 1/3) {
+    return 'success'; // Vert pour moins de 1/3
+  } else if (ratio < 2/3) {
+    return 'warning'; // Jaune pour moins de 2/3
+  } else {
+    return 'danger'; // Rouge pour 2/3 ou plus
+  }
+}
+
 
 
 

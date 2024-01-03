@@ -7,6 +7,58 @@
 //   }
 // }
 
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body, ion-content {
+  font-family: 'Chewy', cursive;
+}
+
+.welcome-message h1 span {
+  font-family: 'Bangers', cursive;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.welcome-message h2, .modal-content h2 {
+  font-family: 'Bangers', cursive;
+  font-size: 2em;
+  color: #555;
+}
+
+.welcome-message p, .modal-content p, .modal-content li {
+  font-family: 'Chewy', cursive;
+  font-size: 1.2em;
+  color: #666;
+}
+
+.quiz-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacement entre les boutons */
+}
+
+.play-button, .help-button, .share-button {
+  --border-radius: 8px; /* Arrondir les bords des boutons */
+  --transition: 0.3s; /* Durée de l'animation de transition */
+}
+
+.play-button:hover, .help-button:hover, .share-button:hover {
+  --transform: scale(1.1); /* Facteur d'agrandissement au survol */
+}
+
+.play-button {
+  --background: var(--ion-color-success); /* Couleur de fond pour le bouton Jouer */
+}
+
+.help-button {
+  --background: var(--ion-color-medium); /* Couleur de fond pour le bouton Comment jouer ? */
+}
+
+.share-button {
+  --background: var(--ion-color-tertiary); /* Couleur de fond pour le bouton Partager */
+}
 
 .custom-modal-size {
   --width: 80%;
@@ -95,4 +147,25 @@ ion-modal::part(backdrop) {
 ion-modal ion-toolbar {
   --background: rgb(14 116 144);
   --color: white;
+}
+
+
+@keyframes drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 span {
+  display: inline-block;
+  animation-name: drop;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: both;
+  animation-delay: calc(var(--n) * 0.15s);
 }

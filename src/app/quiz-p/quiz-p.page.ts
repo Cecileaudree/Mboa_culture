@@ -57,15 +57,29 @@ export class QuizPPage implements OnInit {
     this.afficherMessageJoueurActuel()
 
     this.Question()
+    this.getProgressBarColor();
+
 
   }
 
   async afficherMessageJoueurActuel() {
     if (this.joueurActuel) {
       const alert = await this.alertController.create({
-        header: 'C\'est à toi de jouer !',
-        subHeader: `C'est au tour de ${this.joueurActuel.nom}.`,
-        buttons: ['OK']
+        cssClass: 'custom-multi-joueurs-alert',
+        // header: 'C\'est à toi de jouer !',
+        subHeader: `C'est à toi de jouer ${this.joueurActuel.nom}.`,
+        buttons: [
+          // {
+          //   text: 'Annuler',
+          //   cssClass: 'alert-button-cancel',
+           
+          // },
+          {
+            text: 'OK',
+            cssClass: 'alert-button-confirm',
+            
+          },
+        ],
       });
 
       await alert.present();
@@ -181,6 +195,7 @@ export class QuizPPage implements OnInit {
 
   async askForPlayerName(index: number): Promise<string> {
     const loading = await this.alertController.create({
+      cssClass: 'custom-multi-joueurs-alert',
       message: `Entrez le nom du joueur ${index}`,
       backdropDismiss: false,
       keyboardClose: false,
@@ -192,14 +207,16 @@ export class QuizPPage implements OnInit {
         }
       ],
       buttons: [
-        {
-          text: 'Annuler',
-          handler: () => {
-            console.log('Annulé');
-          },
-        },
+        // {
+        //   text: 'Annuler',
+        //   cssClass: 'alert-button-cancel',
+        //   handler: () => {
+        //     console.log('Annulé');
+        //   },
+        // },
         {
           text: 'OK',
+          cssClass: 'alert-button-confirm',
           handler: (data) => {
             return data.nomJoueur.trim();
           },
@@ -216,6 +233,17 @@ export class QuizPPage implements OnInit {
 
   miseAJourProgression() {
     this.progression = (this.compteur + 1) / this.questionNiVCat.length;
+  }
+
+  getProgressBarColor() {
+    const ratio = this.score1 / this.taille;
+    if (ratio < 1/3) {
+      return 'success'; // Vert pour moins de 1/3
+    } else if (ratio < 2/3) {
+      return 'warning'; // Jaune pour moins de 2/3
+    } else {
+      return 'danger'; // Rouge pour 2/3 ou plus
+    }
   }
 
 }

@@ -29,3 +29,112 @@
 *{
   font-family: Gilory;
 }
+
+
+// ion-alert {
+//   --background: #fff; /* Couleur de fond */
+//   --border-radius: 20px; /* Bord arrondi */
+//   --max-width: 500px; /* Largeur maximale */
+//   --min-width: 300px; /* Largeur minimale */
+// }
+
+// ion-alert .alert-wrapper {
+//   --color: #000; /* Couleur du texte */
+// }
+
+// ion-alert .alert-title {
+//   font-size: 1.2em; /* Taille de la police du titre */
+//   font-weight: bold; /* Poids de la police */
+// }
+
+// ion-alert .alert-message {
+//   font-size: 1em; /* Taille de la police du message */
+// }
+
+// ion-alert .alert-button-group button {
+//   --background: #4caf50; /* Couleur de fond des boutons */
+//   --color: white; /* Couleur du texte des boutons */
+// }
+
+
+// ion-alert input {
+//   --background: #f2f2f2; /* Couleur de fond du champ de saisie */
+//   --color: #333; /* Couleur du texte du champ de saisie */
+//   --padding: 15px; /* Espace intérieur */
+//   border-radius: 10px; /* Bord arrondi */
+//   border: 1px solid #ddd; /* Bordure */
+// }
+
+// ion-alert.custom-alert {
+//   --backdrop-opacity: 0.7;
+// }
+
+// .custom-alert .alert-button-group {
+//   padding: 8px;
+// }
+
+// button.alert-button.alert-button-confirm {
+//   background-color: var(--ion-color-success);
+//   color: var(--ion-color-success-contrast);
+// }
+
+// .md button.alert-button.alert-button-confirm {
+//   border-radius: 4px;
+// }
+
+// .ios .custom-alert button.alert-button {
+//   border: 0.55px solid rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.2);
+// }
+
+// .ios button.alert-button.alert-button-cancel {
+//   border-right: 0;
+//   border-bottom-left-radius: 13px;
+//   border-top-left-radius: 13px;
+// }
+
+// .ios button.alert-button.alert-button-confirm {
+//   border-bottom-right-radius: 13px;
+//   border-top-right-radius: 13px;
+// }
+
+ion-alert.custom-multi-joueurs-alert {
+  --backdrop-opacity: 0.7;
+  --background: linear-gradient( #93f9b8a8,#1D976C) ;
+
+  .alert-header {
+    color: #fff; // Couleur blanche pour le texte du header
+    font-size:x-large;
+    // font-weight: bold;
+  }
+
+  .alert-message {
+    color: #fff; // Couleur blanche pour le texte du message
+    font-size:large;
+
+  }
+
+  .alert-input {
+    --background: #5fa58d; // Couleur de fond claire pour l'input
+    --color: #333; // Couleur du texte pour l'input
+    --placeholder-color: #9e9e9e; // Couleur du placeholder
+    border-radius: 5px; // Bords arrondis pour l'input
+    padding: 5px; // Padding pour l'input
+  }
+
+  .alert-button-group {
+    padding: 8px;
+  }
+
+  button.alert-button-cancel {
+    background-color: var(--ion-color-danger);
+    color: white;
+  }
+
+  button.alert-button-confirm {
+    background-color: var(--ion-color-success);
+    color: white;
+  }
+}
+
+
+    

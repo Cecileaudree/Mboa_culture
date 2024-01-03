@@ -6,6 +6,7 @@ import {Storage} from '@ionic/storage'
 import { Howl } from 'howler';
 import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
 // import { DynamicModalContentComponent } from '../dynamic-modal-content-component/dynamic-modal-content-component.component';
 
 
@@ -18,6 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 export class HomePage {
   sound: Howl | undefined;
+   clickSound!: Howl;
   isPlaying: boolean = false;
   lastPosition: number = 0;
   isPaused: boolean = false;
@@ -28,11 +30,58 @@ export class HomePage {
     private quiz: QuizService,
     private storage: Storage,
     public modalController: ModalController,
+    private socialSharing: SocialSharing,
     private translate: TranslateService
   ) {
     // Démarrer la musique automatiquement au chargement de la page
     this.loadAndPlaySound();
   }
+
+  // initializeClickSound(): Promise<void> {
+  //   return new Promise<void>((resolve, reject) => {
+  //     this.clickSound = new Howl({
+  //       src: ['assets/sounds/clicks.mp3'],
+  //       volume: 1,
+  //       onload: () => {
+  //         console.error('cest bon');
+
+  //         resolve();
+  //       },
+  //       onloaderror: (error) => {
+  //         console.error('Error loading click sound:', error);
+  //         reject();
+  //       }
+  //     });
+  //   });
+  // }
+  
+  // async playClickSound() {
+  //   if (this.clickSound) {
+  //     this.clickSound.play();
+  //   }
+  // }
+  shareContent() {
+    // Exemple de contenu à partager
+    let message = "Découvrez ce super Jeu sur le Mboa";
+    let subject = "Mboaculture";
+    // let file = null; // Vous pouvez ajouter des images ou des fichiers si nécessaire
+    let url = "https://www.exemple.com";
+  
+    this.socialSharing.share(message, subject, url)
+      .then(() => {
+        // Succès
+      }).catch((error) => {
+        // Gestion des erreurs
+      });
+  }
+  get letters() {
+    return this.translate.instant("Quiz_home").split('');
+  }
+  getLettersWithDelay() {
+    const text = this.translate.instant("Quiz_home");
+    return Array.from(text).map((char, index) => ({ char, delay: index }));
+  }
+  
 
   loadAndPlaySound() {
     // Vérifier si la musique est déjà en cours de lecture
@@ -48,6 +97,7 @@ export class HomePage {
           console.log('Sound ended');
         },
       });
+      
 
       // Si la musique est en pause, reprenez la lecture à la dernière position connue
       if (!this.isPlaying) {
@@ -144,6 +194,7 @@ export class HomePage {
   async ngOnInit() {
       this.initialize_bd()
   }
+  
 
   async startFunction() {
     this.router.navigate(['/nombre-jouers'])

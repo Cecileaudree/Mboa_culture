@@ -15,6 +15,7 @@ export class NiveauxPage implements OnInit {
   categorie:any
   niveaux:any
   data:any
+  
 
   ngOnInit() {
     const navigation = this.route.getCurrentNavigation();

@@ -1,36 +1,80 @@
-.full-width-button {
-    margin: 10%;
-    width: 100%;
-    font-size: 1.5em;
-    --background: #cb356b; /* Couleur de fond personnalisée */
-    --color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    --transition-duration: 0.3s;
+// .full-width-button {
+//     margin: 10%;
+//     width: 100%;
+//     font-size: 1.5em;
+//     --background: #cb356b; /* Couleur de fond personnalisée */
+//     --color: #fff;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     --transition-duration: 0.3s;
   
-    /* Effet de survol */
-    &:hover {
-      --background: #ffe000; /* Couleur jaune au survol */
-      transform: scale(1.4); /* Agrandissement au survol */
-    }
+//     /* Effet de survol */
+//     &:hover {
+//       --background: #ffe000; /* Couleur jaune au survol */
+//       transform: scale(1.4); /* Agrandissement au survol */
+//     }
   
-    /* Effet au clic */
-    &:active {
-      --background: #799f0c; /* Couleur verte lors du clic */
-      transform: scale(0.9); /* Réduction au clic */
-    }
-  }
+//     /* Effet au clic */
+//     &:active {
+//       --background: #799f0c; /* Couleur verte lors du clic */
+//       transform: scale(0.9); /* Réduction au clic */
+//     }
+//   }
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* Espacement entre les boutons */
+  max-width: 300px;
+  /* Largeur maximale pour les boutons */
+  margin: auto;
+  /* Centrer les boutons horizontalement */
+}
+
+.custom-button {
+  --border-radius: 10px;
+  /* Arrondir les bords des boutons */
+  --background: var(--ion-color-success);
+  /* Couleur de fond principale */
+  --background-activated: var(--ion-color-success-shade);
+  /* Couleur au toucher */
+  --background-hover: var(--ion-color-success-tint);
+  /* Couleur au survol */
+  --transition: 0.3s;
+  /* Durée de l'animation de transition */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  /* Ombre du bouton */
+  --transform: translateY(0); /* Position initiale Y */
+  font-family: 'Chewy', cursive;
+  --background: linear-gradient( #1D976C);
+  --color:#2c3e50;
+}
+.custom-button:active,
+.custom-button:focus {
+--box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Ombre réduite pour l'effet enfoncé */
+--transform: translateY(2px); /* Déplace légèrement le bouton vers le bas */
+}
+
+.custom-button:hover {
+  --transform: scale(1.05);
+  --background: linear-gradient( #93F9B9);
+
+  /* Légère agrandissement au survol */
+}
+
+
   
-  .button-label {
-    font-size: 1.2em;
-  }
+  // .button-label {
+  //   font-size: 1.2em;
+  // }
   
-  /* Optionnel : Ajoutez des marges pour un meilleur espacement */
-  ion-list {
-    margin: 30px;
-    margin-top: 45%;
-  }
+  // /* Optionnel : Ajoutez des marges pour un meilleur espacement */
+  // ion-list {
+  //   margin: 30px;
+  //   margin-top: 45%;
+  // }
   
   ion-content {
     --ion-background-color: #93F9B9;
