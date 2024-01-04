@@ -1,13 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { Camera, CameraResultType } from '@capacitor/camera';
+//import { Camera, CameraResultType } from '@capacitor/camera';
 import { Device } from '@capacitor/device';
 // import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
-
-
-
 
 import{ IonicStorageModule} from '@ionic/storage-angular'
 import { Drivers } from '@ionic/storage';

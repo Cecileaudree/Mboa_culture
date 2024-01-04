@@ -4,6 +4,13 @@
       <ion-button (click)="toggleAndPlaySound()">
         <ion-icon [name]="isPaused ? 'volume-mute' : 'volume-high'"></ion-icon>
       </ion-button>
+      <ion-button (click)="changerLangue('en')">
+        <ion-icon name="language-outline"></ion-icon>AN
+      </ion-button>
+
+      <ion-button (click)="changerLangue('fr')">
+        <ion-icon name="language-outline"></ion-icon>FR
+      </ion-button>
     </ion-buttons>
     <ion-title class="ion-no-border">
 
@@ -30,22 +37,22 @@
       <ion-icon name="play-circle-outline"></ion-icon>
       Jouer
     </ion-button>
-  
+
     <!-- Bouton Comment jouer ? -->
     <ion-button color="medium" class="help-button" id="open-modal">
       <ion-icon name="information-circle-outline"></ion-icon>
       {{"Quiz_home_comment"| translate}}
     </ion-button>
-  
+
     <!-- Bouton Partager -->
     <ion-button color="tertiary" class="share-button" (click)="shareContent()">
       <ion-icon name="share-social-outline"></ion-icon>
       Partager
     </ion-button>
   </div>
-  
 
-  
+
+
   <ion-modal #modal trigger="open-modal">
     <ng-template>
       <ion-content>

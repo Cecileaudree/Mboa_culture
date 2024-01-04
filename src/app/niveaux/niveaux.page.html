@@ -3,14 +3,21 @@
     <ion-title>niveaux</ion-title>
   </ion-toolbar>
 </ion-header> -->
-<br> <br> <br> <br> <br> <br> <br> <br>
+
 <ion-content [fullscreen]="true">
+  <div class="header">
+    <ion-buttons >
+
+        <ion-back-button slot="start" defaultHref="/categorie"></ion-back-button>
+    </ion-buttons>
+  </div>
+  <br> <br> <br> <br> <br> <br> <br> <br>
   <div class="button-container">
     <div *ngFor="let item of niveaux"  (click)="questionCatNiv(item)">
       <ion-button expand="full" shape="round" class="custom-button" >
-         {{ item.Libelle_niveau }}   
+         {{ item.Libelle_niveau }}
       </ion-button>
     </div>
   </div>
-</ion-content>  
+</ion-content>
 

@@ -10,6 +10,7 @@ import { Device } from '@capacitor/device';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+
   constructor(private quiz:QuizService, private platform:Platform, private translate: TranslateService) {
 
     this.platform.ready().then(()=>{
@@ -17,6 +18,7 @@ export class AppComponent {
       //this.translate.setDefaultLang('fr'); // Langue par défaut
       //this.translate.use('en');
       this.obtenirLangueTelephone()
+
       this.initiliazeAppsql()
     });
   }
@@ -29,9 +31,21 @@ export class AppComponent {
   info:any={}
   async obtenirLangueTelephone() {
      this.info = await Device.getInfo();
-    this.langueDuTelephone =  this.info.value || 'fr'; // Par défaut, utilisez 'fr' si la langue n'est pas disponible
+    this.langueDuTelephone =  this.info.value || 'en'; // Par défaut, utilisez 'fr' si la langue n'est pas disponible
     console.log('Langue du téléphone :', this.langueDuTelephone);
     this.translate.use(this.langueDuTelephone)
+  }
+
+  changerLangue(p:any) {
+    //Changer de langue ici
+    if ( p=='fr') {
+      this.translate.use('fr');
+      this.langueDuTelephone === 'fr'
+    } else {
+
+      this.langueDuTelephone === 'en'
+      this.translate.use('en');
+    }
   }
 
 

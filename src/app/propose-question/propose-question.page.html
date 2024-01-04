@@ -1,64 +1,3 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>propose-question</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
-<!-- <ion-content [fullscreen]="true">
-  <ion-modal [isOpen]="is_open" didDismiss="handleClose($event)">
-
-    <ng-template>
-      <ion-header>
-        <ion-toolbar>
-          <ion-title>hello</ion-title>
-          <ion-buttons slot="end" >
-            <ion-button (click)="close()">
-              <ion-icon slot="icon-only" name="close"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-      </ion-header>
-
-      <ion-content class="ion-padding">
-        <ion-item class="ion-margin-bottom">
-          <ion-input type="text" label="nom_etudiant:" fill="outline" labelPlacement="stacked" [(ngModel)]="question.nom">
-          </ion-input>
-        </ion-item>
-        <ion-item class="ion-margin-bottom">
-          <ion-input type="date" label="Birtday" fill="outline" labelPlacement="stacked" [(ngModel)]="question.birthdate">
-          </ion-input>
-        </ion-item>
-
-
-        <ion-item class="ion-margin-bottom">
-          <ion-select fill="outline" label="Filiere" labelPlacement="stacked" placeholder="choisir une filiere" [(ngModel)]="question.filiere">
-            <ion-select-option value="ISI">ISI</ion-select-option>
-            <ion-select-option value="SRT">SRT</ion-select-option>
-          </ion-select>
-        </ion-item>
-
-        <ion-item class="ion-margin-bottom">
-          <ion-select fill="outline" label="Niveau" labelPlacement="stacked" placeholder="choisir une filiere" [(ngModel)]="question.niveau">
-            <ion-select-option value="3">3</ion-select-option>
-            <ion-select-option value="4">4</ion-select-option>
-            <ion-select-option value="5">5</ion-select-option>
-          </ion-select>
-        </ion-item>
-        <div class="ion-padding">
-          <ion-button (click)="save()" expand="block">
-            Enregistrer
-          </ion-button>
-        </div>
-
-
-      </ion-content>
-    </ng-template>
-
-  </ion-modal>
-</ion-content> -->
-
-
-
 <ion-content padding>
   <ion-card class="question-card">
     <ion-card-header>
@@ -66,71 +5,64 @@
     </ion-card-header>
 
     <ion-card-content class="form-content">
-      <ion-item class="form-item">
-        <ion-label position="floating" class="police">Libellé de la Question</ion-label>
-        <ion-input type="text" placeholder="Entrez le libellé de la question"></ion-input>
-      </ion-item>
-
-      <ion-item class="form-item">
-        <ion-label position="floating" class="police">Catégorie</ion-label><br><br>
-        <ion-select placeholder="Sélectionnez une catégorie" class="police">
-          <ion-select-option value="population">Population</ion-select-option>
-          <ion-select-option value="culture">Culture</ion-select-option>
-          <ion-select-option value="musique">Musique</ion-select-option>
-          <ion-select-option value="sport">Sport</ion-select-option>
-          <ion-select-option value="organisation">Organisation des ethnies</ion-select-option>
-        </ion-select>
-      </ion-item>
-      
-      <ion-item class="form-item">
-        <ion-label position="floating" class="police">Niveau</ion-label><br><br>
-        <ion-select placeholder="Sélectionnez un niveau" class="police">
-          <ion-select-option value="debutant">Débutant</ion-select-option>
-          <ion-select-option value="intermediaire">Intermédiaire</ion-select-option>
-          <ion-select-option value="expert">Expert</ion-select-option>
-        </ion-select>
-      </ion-item>
-      
-
-      <div class="response-container">
-        <ion-item >
-          <ion-label position="floating" class="police">Réponse 1</ion-label><br>
-          <ion-input type="text" placeholder="Entrez la réponse"></ion-input>
-        </ion-item>
-
-        <ion-item class="form-item checkbox-item">
-          <ion-label class="police">Correcte?</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
+      <!-- Utilisez le formulaire dans le HTML -->
+      <form [formGroup]="questionForm" (ngSubmit)="submitForm()">
+        <!-- Ajoutez des champs du formulaire au besoin -->
+        <ion-item class="form-item">
+          <ion-label position="floating" class="police">Libellé de la Question</ion-label>
+          <ion-input type="text" formControlName="libelleQuestion"></ion-input>
         </ion-item>
 
         <ion-item class="form-item">
-          <ion-label position="floating" class="police">Points</ion-label>
-          <ion-input type="number" placeholder="0"></ion-input>
-        </ion-item>
-      </div>
-
-      <div class="response-container">
-        <ion-item class="form-item">
-          <ion-label position="floating" class="police">Réponse 2</ion-label><br>
-          <ion-input class="ionInput" type="text" placeholder="Entrez la réponse"></ion-input>
-        </ion-item>
-
-        <ion-item class="form-item checkbox-item">
-          <ion-label class="police">Correcte?</ion-label>
-          <ion-checkbox slot="start"></ion-checkbox>
+          <ion-label position="floating" class="police">Catégorie</ion-label><br><br>
+          <ion-select formControlName="categorie" placeholder="Sélectionnez une catégorie" class="police">
+            <ion-select-option value="population">Population</ion-select-option>
+            <ion-select-option value="culture">Culture</ion-select-option>
+            <ion-select-option value="musique">Musique</ion-select-option>
+            <ion-select-option value="sport">Sport</ion-select-option>
+            <ion-select-option value="organisation">Organisation des ethnies</ion-select-option>
+          </ion-select>
         </ion-item>
 
         <ion-item class="form-item">
-          <ion-label position="floating" class="police">Points</ion-label>
-          <ion-input type="number" placeholder="0"></ion-input>
+          <ion-label position="floating" class="police">Niveau</ion-label><br><br>
+          <ion-select formControlName="niveau" placeholder="Sélectionnez un niveau" class="police" placeholder="Sélectionnez un niveau" class="police">
+
+              <ion-select-option value="debutant">Débutant</ion-select-option>
+              <ion-select-option value="intermediaire">Intermédiaire</ion-select-option>
+              <ion-select-option value="expert">professionel</ion-select-option>
+              <ion-select-option value="expert">master</ion-select-option>
+
+          </ion-select>
         </ion-item>
-      </div>
 
-      
+        <div class="response-container" formArrayName="reponses">
+          <div *ngFor="let reponse of reponses.controls; let i = index" [formGroupName]="i">
+            <ion-item class="form-item">
+              <ion-label position="floating" class="police">Réponse {{ i + 1 }}</ion-label><br>
+              <ion-input type="text" formControlName="choix"></ion-input>
+            </ion-item>
 
-      <!-- Ajouter d'autres réponses au besoin -->
+            <ion-item class="form-item checkbox-item">
+              <ion-label class="police">Correcte?</ion-label>
+              <ion-checkbox formControlName="est_correct" slot="start"></ion-checkbox>
+            </ion-item>
 
-      <ion-button expand="full" color="success" class="submit-button">Soumettre</ion-button>
+            <ion-item class="form-item">
+              <ion-label position="floating" class="police">Points</ion-label>
+              <ion-input type="number" formControlName="points"></ion-input>
+            </ion-item>
+
+            <ion-icon (click)="supprimerReponse(i)" name="close-circle"></ion-icon>
+          </div>
+        </div>
+        <ion-button (click)="ajouterReponse()" expand="full" color="success" class="submit-button">Ajouter une réponse</ion-button>
+
+
+        <!-- Ajoutez d'autres champs du formulaire au besoin -->
+
+        <ion-button type="submit" expand="full" color="success" class="submit-button">Soumettre</ion-button>
+      </form>
     </ion-card-content>
   </ion-card>
 </ion-content>

@@ -7,6 +7,8 @@ import { Howl } from 'howler';
 import { ModalController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { SocialSharing } from '@awesome-cordova-plugins/social-sharing/ngx';
+import { AuthService } from '../services/auth.service';
+import { AppComponent } from '../app.component';
 // import { DynamicModalContentComponent } from '../dynamic-modal-content-component/dynamic-modal-content-component.component';
 
 
@@ -23,6 +25,7 @@ export class HomePage {
   isPlaying: boolean = false;
   lastPosition: number = 0;
   isPaused: boolean = false;
+  p=0
 
   constructor(
     public actionSheetController: ActionSheetController,
@@ -31,7 +34,9 @@ export class HomePage {
     private storage: Storage,
     public modalController: ModalController,
     private socialSharing: SocialSharing,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private auth:AuthService,
+    private appComponent: AppComponent
   ) {
     // Démarrer la musique automatiquement au chargement de la page
     this.loadAndPlaySound();
@@ -54,7 +59,7 @@ export class HomePage {
   //     });
   //   });
   // }
-  
+
   // async playClickSound() {
   //   if (this.clickSound) {
   //     this.clickSound.play();
@@ -66,7 +71,7 @@ export class HomePage {
     let subject = "Mboaculture";
     // let file = null; // Vous pouvez ajouter des images ou des fichiers si nécessaire
     let url = "https://www.exemple.com";
-  
+
     this.socialSharing.share(message, subject, url)
       .then(() => {
         // Succès
@@ -81,7 +86,7 @@ export class HomePage {
     const text = this.translate.instant("Quiz_home");
     return Array.from(text).map((char, index) => ({ char, delay: index }));
   }
-  
+
 
   loadAndPlaySound() {
     // Vérifier si la musique est déjà en cours de lecture
@@ -97,7 +102,7 @@ export class HomePage {
           console.log('Sound ended');
         },
       });
-      
+
 
       // Si la musique est en pause, reprenez la lecture à la dernière position connue
       if (!this.isPlaying) {
@@ -194,7 +199,7 @@ export class HomePage {
   async ngOnInit() {
       this.initialize_bd()
   }
-  
+
 
   async startFunction() {
     this.router.navigate(['/nombre-jouers'])
@@ -267,11 +272,9 @@ export class HomePage {
         for(let i=0; i< niveaux.length; i++){
            this.niveauxbd={id:niveaux[i].id ,Libelle_niveau:niveaux[i].Libelle_niveau}
            this.listNiveaux.push(this.niveauxbd)
-           //this.quiz.addIng4("Question",this.listQuestion)
+
         }
         this.storage.set("niveaux",this.listNiveaux)
-      //const categoriebd=[{id:categorie[0].id}]
-      //console.log(this.questiondb)
       })
 
       this.quiz.getListOfReponses().subscribe((reponse:any)=>{
@@ -282,14 +285,16 @@ export class HomePage {
            this.reponsesbd={id:reponses[i].id ,choix:reponses[i].choix,est_correct:reponses[i].est_correct,
             points:reponses[i].points,questions_id:reponses[i].questions_id}
            this.listReponses.push(this.reponsesbd)
-           //this.quiz.addIng4("Question",this.listQuestion)
         }
         this.storage.set("reponses",this.listReponses)
-      //const categoriebd=[{id:categorie[0].id}]
-      //console.log(this.questiondb)
       })
       await this.storage.set("is_initialize",true)
     }
+
+  }
+
+  changerLangue(langue:any) {
+    this.appComponent.changerLangue(langue)
 
   }
 

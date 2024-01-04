@@ -8,11 +8,11 @@
 
   <span  class="catniv" >
     <ion-badge color="dark"><ion-icon name="home-outline"></ion-icon></ion-badge>&nbsp;
-    <ion-badge color="dark">catEnCours<ion-icon name="chevron-forward-outline"></ion-icon>nivEnCours</ion-badge>&nbsp;
+    <ion-badge color="dark">{{data.cat}}<ion-icon name="chevron-forward-outline"></ion-icon>{{data.niv}}</ion-badge>&nbsp;
   <ion-badge color="dark" class="compte" shape="round" >taille/total</ion-badge>
   </span>
   <span class="encours">
-    <ion-badge color="warning">5 Points</ion-badge> &nbsp; <p class="blanc">En Jeu Pendant</p> &nbsp;<ion-badge color="warning">49secondes</ion-badge>
+    <ion-badge color="warning">3 Points</ion-badge> &nbsp; <p class="blanc">En Jeu Pendant</p> &nbsp;<ion-badge color="warning">{{ tempsRestant }}secondes</ion-badge>
   </span>
 <br> <br> <br> <br>
 

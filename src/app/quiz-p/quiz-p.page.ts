@@ -20,6 +20,7 @@ export class QuizPPage implements OnInit {
   }
 
   data:any
+  private minuterie: any;
   questionNiVCat:any[]=[]
   compteur=0
   PoseQuestion:any
@@ -31,6 +32,8 @@ export class QuizPPage implements OnInit {
   joueurs:Joueur[]=[]
   joueurActuel:Joueur | any
   progression=0
+  tempsRestant: number=120;
+  private tempsParQuestion = 120; // en secondes
 
   ngOnInit(): void {
 
@@ -57,6 +60,7 @@ export class QuizPPage implements OnInit {
     this.afficherMessageJoueurActuel()
 
     this.Question()
+    this.lancerMinuterie();
     this.getProgressBarColor();
 
 
@@ -72,12 +76,12 @@ export class QuizPPage implements OnInit {
           // {
           //   text: 'Annuler',
           //   cssClass: 'alert-button-cancel',
-           
+
           // },
           {
             text: 'OK',
             cssClass: 'alert-button-confirm',
-            
+
           },
         ],
       });
@@ -102,7 +106,7 @@ export class QuizPPage implements OnInit {
 
 
   onReponseClick(correct: any, j:Joueur): void {
-
+    this.reinitialiserMinuterie();
     if(correct.est_correct="vraie"){
       //this.score1=correct.points+this.score1
       console.log(j)
@@ -124,11 +128,12 @@ export class QuizPPage implements OnInit {
         }
         console.log(this.reponses);
       });
+      this.lancerMinuterie();
       this.miseAJourProgression();
 
     }
     else if(this.compteur == this.questionNiVCat.length -1 && this.currentPlayerIndex<this.joueurs.length-1){
-      
+
       this.currentPlayerIndex++
       //this.Question()
       this.compteur=0
@@ -229,6 +234,29 @@ export class QuizPPage implements OnInit {
     return loading.onDidDismiss().then((data) => {
       return data.data.values.nomJoueur.trim();
     });
+  }
+
+  private reinitialiserMinuterie(): void {
+    // Réinitialiser la minuterie
+    clearInterval(this.minuterie);
+  }
+
+  private lancerMinuterie(): void {
+    this.tempsRestant = this.tempsParQuestion;
+
+    // Lancer la minuterie pour passer à la question suivante après le temps défini
+    this.minuterie = setInterval(() => {
+      this.tempsRestant--;
+
+      // Vérifier si le temps est écoulé
+      if (this.tempsRestant === 0) {
+        const correct={
+          est_correct:"Faux",
+          points:0
+        }
+        this.onReponseClick(correct,this.joueurActuel); // Appeler la méthode avec une réponse incorrecte
+      }
+    }, 1000);
   }
 
   miseAJourProgression() {

@@ -14,6 +14,17 @@ export class AuthService {
     return this.http.post(this.url+'/questions/',question);
   }
 
+  changerLangue(p:number) {
+    // Changer de langue ici
+    // if (this.langueDuTelephone === 'fr') {
+    //   this.translate.use('en');
+    // } else {
+    //   this.translate.use('fr');
+    // }
+
+    console.log(p)
+  }
+
 
 
 }

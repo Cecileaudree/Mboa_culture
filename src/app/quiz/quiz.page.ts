@@ -13,7 +13,9 @@ export class QuizPage {
     //this.translate.setDefaultLang('en'); // Langue par défaut
    // this.translate.use('en');
   }
-
+  
+  private tempsParQuestion = 120; // en secondes
+  private minuterie: any;
   data:any
   questionNiVCat:any[]=[]
   compteur=0
@@ -23,6 +25,7 @@ export class QuizPage {
   score1=0
   taille:any
   progression=0
+  tempsRestant: number=120;
 
   // currentQuestion = 0;
   // score = 0;
@@ -70,6 +73,7 @@ export class QuizPage {
         }
         console.log(this.reponses)
       })
+      this.lancerMinuterie();
 
       //}
 
@@ -97,14 +101,14 @@ export class QuizPage {
   }
 
 
-
-
   onReponseClick(correct: any): void {
     console.log(correct.est_correct)
+    this.reinitialiserMinuterie();
     if(correct.est_correct="vraie"){
       this.score1=correct.points+this.score1
-      
     }
+
+    console.log(this.score1)
 
     if (this.compteur < this.questionNiVCat.length - 1) {
       this.compteur++;
@@ -118,10 +122,12 @@ export class QuizPage {
           if (reponse[i].questions_id == this.id_question) {
             this.reponses.push(reponse[i]);
           }
-        }
+        };
         console.log(this.reponses);
       });
+      this.lancerMinuterie();
       this.miseAJourProgression();
+ 
     }
     else {
       // L'utilisateur a terminé toutes les questions, vous pouvez ajouter une logique pour le rediriger vers une autre page, par exemple.
@@ -134,6 +140,28 @@ export class QuizPage {
 
 }
 
+private reinitialiserMinuterie(): void {
+  // Réinitialiser la minuterie
+  clearInterval(this.minuterie);
+}
+
+private lancerMinuterie(): void {
+  this.tempsRestant = this.tempsParQuestion;
+
+  // Lancer la minuterie pour passer à la question suivante après le temps défini
+  this.minuterie = setInterval(() => {
+    this.tempsRestant--;
+
+    // Vérifier si le temps est écoulé
+    if (this.tempsRestant === 0) {
+      const correct={
+        est_correct:"Faux",
+        points:0
+      }
+       this.onReponseClick(correct); // Appeler la méthode avec une réponse incorrecte
+    }
+  }, 1000);
+}
 
 miseAJourProgression() {
   this.progression = (this.compteur + 1) / this.questionNiVCat.length;
